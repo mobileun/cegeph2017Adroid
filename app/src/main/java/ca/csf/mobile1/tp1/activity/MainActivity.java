@@ -25,7 +25,10 @@ import ca.csf.mobile1.tp1.chemical.compound.UnknownChemicalElementException;
 import ca.csf.mobile1.tp1.chemical.element.ChemicalElement;
 import ca.csf.mobile1.tp1.chemical.element.ChemicalElementRepository;
 
-
+/**
+ * Class MainActivity est le contrôleur de l'application
+ * pour une architecture MVC
+ */
 public class MainActivity extends AppCompatActivity {
 
     private View rootView;
@@ -36,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
     private String formula;
     private String molecularWeightText;
 
+    /**
+     * La méthode onCreate génère et prépare les attributs privés
+     * de l'application.
+     * @param savedInstanceState conserve les valeurs nécessaires
+     *                           à la réinitialisation de l'application selon son dernier état
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * La méthode lance la procédure qui permet de calculer le poids d'un composé chimiques
+     * @param view la view de l'application pour l'architecture MVC
+     */
     public void onComputeButtonClicked(View view) {
 
         try {
@@ -121,7 +134,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Méthode effectuant le chargement des masse molaires des éléments chimiques du tableau périodique
+     * @throws Exception correspondant à un échec du chargement des masse molaires
+     */
      private void loadChemicalElementRepository() throws Exception
      {
 
@@ -152,6 +168,11 @@ public class MainActivity extends AppCompatActivity {
 
      }
 
+    /**
+     * Réinitialise l'application dans son dernier état lorsque celle-ci est dormante.
+     * @param savedInstanceState conserve les valeurs nécessaires
+     *                           à la réinitialisation de l'application selon son dernier état
+     */
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -161,6 +182,11 @@ public class MainActivity extends AppCompatActivity {
         outputTextView.setText(savedInstanceState.getString("currentOutPutText"));
     }
 
+    /**
+     * Méthode permettant de préserver l'état de l'application pour une réinitialisation futur.
+     * @param outState conserve les valeurs nécessaires
+     *                           à la réinitialisation de l'application selon son état actuel
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
