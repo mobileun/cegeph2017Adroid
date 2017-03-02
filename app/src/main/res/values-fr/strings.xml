@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Formule chimique</string>
+
+    <string name="text_compute_weight">Calculer le poids</string>
+    <string name="hint_chemical_formula">Formule chimique (H2O, NaCl, …)</string>
+
+    <string name="text_output">%f g/mol</string>
+
+    <string name="text_empty_formula">Cette fomule chimique est vide.</string>
+    <string name="text_illegal_character">Le charactère "%s" est illégal dans une formule chimique.</string>
+    <string name="text_misplaced_exponent">Un exposant invalide est placé avant même un élément chimique ou une parenthèse.</string>
+    <string name="text_empty_parenthesis">Il y a une parenthèse vide invalide.</string>
+    <string name="text_unknown_chemical_element">L\'élément chimique "%s" est inconnu.</string>
+    <string name="text_illegal_closing_parenthesis">Il y a une fermeture de parenthèse avant même qu\'elle soit ouverte.</string>
+    <string name="text_missing_closing_parenthesis">Il y a une parenthèse non fermée.</string>
+</resources>

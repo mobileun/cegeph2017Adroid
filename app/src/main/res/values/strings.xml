@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Chemical formula</string>
+
+    <string name="text_compute_weight">Compute Weight</string>
+    <string name="hint_chemical_formula">Chemical formula (H2O, NaCl, …)</string>
+    
+    <string name="text_output">%f g/mol</string>
+
+    <string name="text_empty_formula">Formula is empty.</string>
+    <string name="text_illegal_character">Character "%s" is illegal.</string>
+    <string name="text_misplaced_exponent">Illegal exponent placed before any chemical element or parenthesis found.</string>
+    <string name="text_empty_parenthesis">Illegal empty parenthesis found.</string>
+    <string name="text_unknown_chemical_element">The chemical element "%s" is unknown.</string>
+    <string name="text_illegal_closing_parenthesis">Closing parenthesis without matching open parenthesis found.</string>
+    <string name="text_missing_closing_parenthesis">Open parenthesis without matching closed parenthesis found.</string>
+</resources>
