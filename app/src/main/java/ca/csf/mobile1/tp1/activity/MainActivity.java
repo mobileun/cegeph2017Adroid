@@ -60,13 +60,18 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (Exception e)
         {
+            //BEN_REVIEW : Faudrait plutôt dire à l'utilisateur ce qui s'est passé.
+            //             Même que, mieux encore, je ferais planter l'application. Cela ne devrait
+            //             même pas arriver ce genre d'erreur.
             MainActivity.this.finish();
         }
 
         model = new ChemicalCompoundFactory(chemicalElementRepository);
         if(savedInstanceState != null)
         {
+            //BEN_CORRECTION : Faire une constante pour la chaine de caractères.
             inputEditText.setText(savedInstanceState.getString("currentInputText"));
+            //BEN_CORRECTION : Faire une constante pour la chaine de caractères.
             outputTextView.setText(savedInstanceState.getString("currentOutPutText"));
 
         }
@@ -87,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         try {
 
             double molarWeigth = 0;
+            //BEN_CORRECTION : Déjà obtenu dans "onCreate".
             inputEditText = (EditText) findViewById(R.id.inputEditText);
             formula = inputEditText.getText().toString();
 
@@ -94,10 +100,11 @@ public class MainActivity extends AppCompatActivity {
             molarWeigth = compound.getWeight();
 
             molecularWeightText = getResources().getString(R.string.text_output,molarWeigth);
+            //BEN_CORRECTION : Déjà obtenu dans "onCreate".
             outputTextView = (TextView) findViewById(R.id.outputTextView);
             outputTextView.setText(molecularWeightText);
 
-            }
+            } //BEN_CORRECTION : Indentation.
         catch (EmptyParenthesisException e)
         {
             Snackbar.make(rootView, R.string.text_empty_parenthesis, Snackbar.LENGTH_LONG).show();
@@ -144,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
          try {
 
-             String language = Locale.getDefault().getLanguage();
+             String language = Locale.getDefault().getLanguage(); //BEN_CORRECTION : Inutilisé et inutile.
              InputStream inputStream = getResources().openRawResource(R.raw.chemical_elements);
              InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
              BufferedReader reader = new BufferedReader(inputStreamReader);
@@ -176,9 +183,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        //BEN_CORRECTION : Déjà obtenu dans "onCreate".
         inputEditText = (EditText) findViewById(R.id.inputEditText);
+        //BEN_CORRECTION : Déjà obtenu dans "onCreate".
         outputTextView = (TextView) findViewById(R.id.outputTextView);
+        //BEN_CORRECTION : Faire une constante pour la chaine de caractères.
         inputEditText.setText(savedInstanceState.getString("currentInputText"));
+        //BEN_CORRECTION : Faire une constante pour la chaine de caractères.
         outputTextView.setText(savedInstanceState.getString("currentOutPutText"));
     }
 
@@ -190,11 +201,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        //BEN_CORRECTION : Déjà obtenu dans "onCreate".
         inputEditText = (EditText) findViewById(R.id.inputEditText);
+        //BEN_CORRECTION : Déjà obtenu dans "onCreate".
         outputTextView = (TextView) findViewById(R.id.outputTextView);
         String inputTextToKeep = inputEditText.getText().toString();
         String outputTextToKeep = outputTextView.getText().toString();
+        //BEN_CORRECTION : Faire une constante pour la chaine de caractères.
         outState.putString("currentInputText",inputTextToKeep);
+        //BEN_CORRECTION : Faire une constante pour la chaine de caractères.
         outState.putString("currentOutPutText",outputTextToKeep);
     }
 
